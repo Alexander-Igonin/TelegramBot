@@ -2,9 +2,9 @@ import telebot
 import random
 
 
-TOKEN = '1101438623:AAFZInJNcB7A6S95VREDzg1z5S8XAs900cw'
 
-bot = telebot.TeleBot(TOKEN)
+
+bot = telebot.TeleBot('1101438623:AAFZInJNcB7A6S95VREDzg1z5S8XAs900cw')
 
 
 
