@@ -2,7 +2,7 @@ import telebot
 import random
 import os
 
-TOKEN = os.environ.get('BOT_TOKEN')
+TOKEN = ''
 
 bot = telebot.TeleBot(TOKEN)
 
