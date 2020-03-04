@@ -187,4 +187,4 @@ def echo_all(message: telebot):
     bot.send_message(message.chat.id, str(random.choice(lst)))
     print(random.choice(lst))
 
-bot.polling()
+bot.polling(timeout=60)
