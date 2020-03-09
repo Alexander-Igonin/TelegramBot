@@ -21,16 +21,20 @@ def logger(name, username, text):
 def send_welcome(message):
     bot.send_message(message.chat.id,
                      f'Привет, {str(message.from_user.first_name)} !!\nЯ умею шутить и предсказывать погоду. Основные команды: "шутка", "погода", "погода завтра".\nДля подробностей введите /help')
-
+    logger(message.chat.first_name, message.chat.username, message.text)
+          
+          
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
     bot.send_message(message.chat.id, 'Доступные команды:\nшутка - случайный анекдот\nпогода - какая сегодня погода\nпогода завтра - прогноз погоды на завтра')
-
+    logger(message.chat.first_name, message.chat.username, message.text)
+          
+          
 @bot.message_handler()
 def echo_all(message: telebot):
-    first_name = message.chat.first_name
-    username = message.chat.username
-    text = message.text
+    #first_name = message.chat.first_name
+    #username = message.chat.username
+    #text = message.text
     if 'шутка' in message.text:
         r = requests.get('http://rzhunemogu.ru/RandJSON.aspx?1')
         t = r.text
@@ -40,6 +44,6 @@ def echo_all(message: telebot):
     elif 'погода завтра'in message.text:
         bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(message.text)}\n\n{parser.day_description(message.text)}')
 
-    logger(first_name, username, text)
+    logger(message.chat.first_name, message.chat.username, message.text)
 
 bot.polling(none_stop=True)
