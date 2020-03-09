@@ -11,10 +11,12 @@ bot = telebot.TeleBot(TOKEN)
 
 def logger():
     time_now = datetime.now(timezone.utc).astimezone() + timedelta(hours=2)
-    file = open('log.txt', 'a', encoding='UTF-8')
-    file.write(f'{message.chat.first_name}\t{message.chat.username}\t{message.text}\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}\n')
-    file.close
-
+    #file = open('log.txt', 'a', encoding='UTF-8')
+    #file.write(f'{message.chat.first_name}\t{message.chat.username}\t{message.text}\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}\n')
+    #file.close
+    print(f'{message.chat.first_name}\t{message.chat.username}\t{message.text}\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}\n')
+          
+          
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(message.chat.id,
@@ -35,6 +37,6 @@ def echo_all(message: telebot):
     elif 'погода завтра'in message.text:
         bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(message.text)}\n\n{parser.day_description(message.text)}')
 
-    #logger()
+    logger()
 
 bot.polling(none_stop=True)
