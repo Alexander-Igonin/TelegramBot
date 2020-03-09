@@ -41,7 +41,9 @@ def echo_all(message: telebot):
         bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(text)}\n\n{parser.day_description(text)}')
     elif 'погода завтра' in text:
         bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(text)}\n\n{parser.day_description(text)}')
-
+    else:
+        bot.reply_to(message, 'Такой команды нет.\n/help - список доступных команд')
+          
     logger(message.chat.first_name, message.chat.username, message.text)
 
 bot.polling(none_stop=True)
