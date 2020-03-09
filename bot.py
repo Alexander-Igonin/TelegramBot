@@ -32,17 +32,15 @@ def send_welcome(message):
           
 @bot.message_handler()
 def echo_all(message: telebot):
-    #first_name = message.chat.first_name
-    #username = message.chat.username
-    #text = message.text
-    if 'шутка' or 'Шутка' in message.text:
+    text = str(message.text).lower()
+    if 'шутка' in text:
         r = requests.get('http://rzhunemogu.ru/RandJSON.aspx?1')
         t = r.text
         bot.send_message(message.chat.id, str(t[12:-2]))
-    elif 'погода' or 'Погода' in message.text:
-        bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(message.text)}\n\n{parser.day_description(message.text)}')
-    elif 'погода завтра' or 'Погода завтра' in message.text:
-        bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(message.text)}\n\n{parser.day_description(message.text)}')
+    elif 'погода' in text:
+        bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(text)}\n\n{parser.day_description(text)}')
+    elif 'погода завтра' in text:
+        bot.send_message(message.chat.id, f'Температура:{parser.get_today_temp(text)}\n\n{parser.day_description(text)}')
 
     logger(message.chat.first_name, message.chat.username, message.text)
 
