@@ -14,7 +14,7 @@ def logger(name, username, text):
     #file = open('log.txt', 'a', encoding='UTF-8')
     #file.write(f'name\tusername\ttext\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}\n')
     #file.close
-    print(f'name\tusername\ttext\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}\n')
+    print(f'{name}\t{username}\t{text}\t{str(time_now.strftime("%d:%m:%Y %H:%M:%S"))}')
           
           
 @bot.message_handler(commands=['start'])
