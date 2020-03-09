@@ -37,7 +37,7 @@ def day_link(url, string):
     if string == 'погода':
         return url + time_now
     elif string == 'погода завтра':
-        new_time = time_now[:-1] + str(int(time_now[-1]) + 1)
+        new_time = time_now[:-2] + str(int(time_now[-1]) + 1)
         return url + new_time
 
 
