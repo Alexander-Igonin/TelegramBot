@@ -5,9 +5,9 @@ from datetime import datetime, timezone, timedelta
 import weather_parser as parser
 
 
-TOKEN = 'KEY'
+TOKEN = str(KEY)
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(f'{TOKEN}')
 
 def logger(name, username, text):
     time_now = datetime.now(timezone.utc).astimezone() + timedelta(hours=2)
