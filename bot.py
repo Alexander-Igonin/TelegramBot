@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 import weather_parser as parser
 
 
-TOKEN = '1101438623:AAFZInJNcB7A6S95VREDzg1z5S8XAs900cw'
+TOKEN = 'KEY'
 
 bot = telebot.TeleBot(TOKEN)
 
